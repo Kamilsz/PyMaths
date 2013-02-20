@@ -113,24 +113,26 @@ def main():
     exercises = mathOperation() #asks user what they want to practice and and what range of each math operation they want to try
     while repeat:
         
-        repetitions = 1 #number of exercises
+        i = 0
+        #number of exercises
+        repetitions = integerbox("How many exercises would you like to do?", lowerbound = 1, upperbound = 100)
         score = 0
-        while repetitions <= 3:
+        while i <= repetitions:
             for operation in exercises:
                 if operation == 'multiplication':
                     score += multiplication(exercises[operation])
-                    repetitions += 1
+                    i += 1
                 elif operation == 'division':
                     score += division(exercises[operation])
-                    repetitions += 1
+                    i += 1
                 elif operation == 'addition':
                     score += addition(exercises[operation])
-                    repetitions += 1
+                    i += 1
                 elif operation == 'substraction':
                     score += substraction(exercises[operation])
-                    repetitions += 1
+                    i += 1
                     
-        result = int((score/(repetitions-1))*100)
+        result = int((score/i)*100)
         if result < 80:
             msgbox ("Your score is {}%.Unfortunatelly, you need to try again".format(result), 'So sorry...', 'Oh well')
             repeat = True
