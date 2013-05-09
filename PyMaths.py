@@ -3,14 +3,13 @@
 '''asks user to select what type of operation they want to practice:
 1. multiplying
 2. adding
-3. substracting
+3. subtracting
 4. dividing
 5. all
 asks user for range and beigns excercise for in range from 1 to x where is provided by user
 if user selected all, asks for range for each of the type of operations
 asks 10 different questions and in the end summarizes user score'''
 
-from __future__ import division
 from random import randint
 from easygui import *
 
