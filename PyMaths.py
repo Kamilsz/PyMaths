@@ -26,7 +26,7 @@ def exerciseQuery(exercise):
     elif exercise == 'addition':
             low = 20
             up = 1000
-    elif exercise == 'substraction':
+    elif exercise == 'subtraction':
             low = 20
             up = 1000
     a = integerbox('Select difficulty for {}'.format(exercise), 'Select difficulty', lowerbound = low, upperbound = up)
@@ -36,7 +36,7 @@ def exerciseQuery(exercise):
 def mathOperation():
     '''asks user what sort of operation they want to practice and what range they should be, returns the choice'''
 
-    choices = ('multiplication', 'substraction', 'addition', 'division')
+    choices = ('multiplication', 'subtraction', 'addition', 'division')
     exercisesList = multchoicebox("What would you like to practice today?", "Mathematics", choices)
     if exercisesList == None: exit()
     exercises = {}
@@ -93,8 +93,8 @@ def addition(difficulty):
     result = num1+num2
     return promptWindow(query, result)
 
-def substraction(difficulty):
-    '''substraction exercise'''
+def subtraction(difficulty):
+    '''subtraction exercise'''
     num1 = randint(1, difficulty)
     num2 = randint(2, difficulty)
     repeat = True
@@ -117,7 +117,7 @@ def main():
         #number of exercises
         repetitions = integerbox("How many exercises would you like to do?", lowerbound = 1, upperbound = 100)
         score = 0
-        while i <= repetitions:
+        while i < repetitions:
             for operation in exercises:
                 if operation == 'multiplication':
                     score += multiplication(exercises[operation])
@@ -128,8 +128,8 @@ def main():
                 elif operation == 'addition':
                     score += addition(exercises[operation])
                     i += 1
-                elif operation == 'substraction':
-                    score += substraction(exercises[operation])
+                elif operation == 'subtraction':
+                    score += subtraction(exercises[operation])
                     i += 1
                     
         result = int((score/i)*100)
